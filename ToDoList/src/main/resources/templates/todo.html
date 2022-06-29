@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container mt-6">
+    <div class="w3-container w3-teal">
+        <h1>.....Spring Boot TODO Example .....</h1>
+        <h5>Table of TODO from @Controller @Service @Repository and H2 DB</h5>
+    </div>
+    <Br>
+
+    <a th:href="@{/new}" class="btn btn-primary">New Todo</a>
+    <br><br>
+    <table  class="w3-table-all w3-hoverable">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="todo:${toDoList}">
+            <td th:text="${todo.id}"></td>
+            <td th:text="${todo.name}"></td>
+          <td>
+              <a th:href="@{/modify/}+${todo.id}" class="btn btn-warning">Modify</a>
+              <a th:href="@{/deleteToDo/}+${todo.id}" class ="btn btn-danger">Delete</a>
+
+          </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+</body>
+</html>
+
